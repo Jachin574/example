@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div, p {
+		width:100px;
+		height:100px;
+		border:1px solid green;
+		margin:10px 0;
+	}
+</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+</body>
+<script>
+	//函数化
+	var getTag = function(tag){
+		return document.getElementsByTagName(tag);
+	}
+
+	var each = function(arr, fn){
+		for(var i = 0; i < arr.length; i++){
+			if( fn.call(arr[i], i, arr[i]) == false)
+				break;
+		}
+	}
+
+	var divs = getTag('div');
+	var ps = getTag('p');
+
+	each(divs, function(i, v){
+		this.style.backgroundColor = 'red';
+	});
+
+	each(ps, function(i, v){
+		this.style.backgroundColor = 'grey';
+	});
+
+	//已经算是棒棒哒~~~
+</script>
+
+</html>

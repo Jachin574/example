@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>数组排列</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+	//初始化数组
+	var array = new Array();
+	//调用初始化函数
+	init();
+	//打印排列前后的数组
+	if(array.length == 0){
+		document.write("数组中无任何合法数值");
+	}
+	else{
+		document.write("数组排列前的顺序：" +  array + "<br/>");
+		document.write("数组排列后的顺序：" +  array.sort(array) + "<br/>");
+	}
+	//任意输入多个数值
+	function init(){
+		while(ture){
+			var v = prompt("输入数值，结束时输入'end'","");
+			if(v == end){
+				break;
+			}
+			if(isNaN(v)){
+				break;
+			}
+			//保存到数组中
+			array.push(parseFloat(v));
+		}
+	}
+</script>
+</head>
+    <body>
+    </body>
+</html>

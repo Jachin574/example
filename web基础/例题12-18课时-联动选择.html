@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>新建网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+	var area = [
+		['香洲区' , '斗门区' , '金湾区'],
+		['潮南区' , '潮阳区' , '龙湖区']
+	]
+	function ld(){
+		var sel = document.getElementById('city');//看好获取的id值是不是对的。有没有使用document
+		var opt = '';
+		if(sel.value == -1)
+			opt = opt + '<option>' + '请选择' + '</option>';
+		else
+		for(var i=0,len=area[sel.value].length; i<len; i++){
+			opt = opt + '<option value="'+ i +'">' + area[sel.value][i] + '</option>'
+		}
+		var x = document.getElementById('area1');
+		x.innerHTML = opt;//innerHTML是用来等于赋值的
+	}
+</script>
+</head>
+    <body>
+    	<select name="" id="city" onchange="ld();">
+    		<option value="-1">请选择</option>
+    		<option value="0">珠海</option>
+    		<option value="1">汕头</option>
+    	</select>
+    	<select name="" id="area1"></select>
+    </body>
+</html>

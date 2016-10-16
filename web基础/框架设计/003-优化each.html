@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div, p {
+		width:100px;
+		height:100px;
+		border:1px solid green;
+		margin:10px 0;
+	}
+</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+</body>
+<script>
+	//函数化
+	var Get = function(tag){
+		return document.getElementsByTagName(tag);
+	}
+
+	var divs = Get('div');
+	var ps = Get('p');
+
+	//性能，两个循环，改一下遍历“数组”的名字
+	var each = function(arr){
+		for(var i = 0; i < arr.length; i++){
+			arr[i].style.background = 'pink';
+		}
+	}
+	
+
+	each(divs);
+
+	each(ps);
+
+	
+	
+</script>
+
+</html>

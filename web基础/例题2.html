@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>一些内置函数</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+	<script type="text/javascript">
+		var a = prompt("输入第一个数字：","");
+		var b = prompt("输入第二个数字：","");
+		if(isNaN(a) || isNaN(b)){
+			alert("输入的其中一个不是数字");
+		}
+		else{
+			a = parseInt(a);
+			b = parseInt(b);
+			var sum = a+b;
+			document.write("结果是：" + a + "+" + b  + "=" + sum);
+		}
+	</script>
+</head>
+    <body></body>
+</html>

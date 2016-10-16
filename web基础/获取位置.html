@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <script language="javascript" src="http://webapi.amap.com/maps?v=1.2&key=0105364c27ceaa70ab15eba206441d65"></script>
+</head>
+<body>
+<p id="demo">点击这个按钮，获得您的坐标：</p>
+<button onclick="getLocation()">试一下</button>
+
+<script type="text/javascript">
+var x=document.getElementById("demo");
+function getLocation()
+  {
+  if (navigator.geolocation)
+    {
+      x.innerHTML="已点击！";
+    navigator.geolocation.watchPosition(showPosition,showError,{
+        // 指示浏览器获取高精度的位置，默认为false
+        enableHighAccuracy: true,
+        // 指定获取地理位置的超时时间，默认不限时，单位为毫秒
+        timeout: 5000,
+        // 最长有效期，在重复获取地理位置时，此参数指定多久再次获取位置。
+        maximumAge: 3000
+    });
+    }
+  else{x.innerHTML="Geolocation is not supported by this browser.";}
+  }
+
+
+function showPosition(position)
+  {
+ var a = "http://restapi.amap.com/v3/assistant/coordinate/convert?locations=" + position.coords.longitude + "," + position.coords.latitude + "&coordsys=gps&output=xml&key=0105364c27ceaa70ab15eba206441d65";
+
+  alert(position.coords.longitude);
+  alert(position.coords.latitude);
+
+  if (window.XMLHttpRequest)
+    {// code for IE7+, Firefox, Chrome, Opera, Safari
+    xmlhttp=new XMLHttpRequest();
+    }
+  else
+    {// code for IE6, IE5
+      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+    }
+xmlhttp.open("GET",a,false);
+xmlhttp.send();
+xmlDoc=xmlhttp.responseXML;
+
+  x.innerHTML= xmlDoc.getElementsByTagName("locations")[0].childNodes[0].nodeValue;	
+
+  
+  }
+function showError(error)
+    {
+    switch(error.code) 
+    {
+    case error.PERMISSION_DENIED:
+      x.innerHTML="您拒绝了使用位置共享服务，查询已取消。"
+      break;
+    case error.POSITION_UNAVAILABLE:
+      x.innerHTML="我们暂时无法为您所在的位置提供位置服务。"
+      break;
+    case error.TIMEOUT:
+      x.innerHTML="连接超时，请重试。"
+      break;
+    case error.UNKNOWN_ERROR:
+      x.innerHTML="未知错误！"
+      break;
+    }
+   }
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+地图开发功能表：
+关于利用百度地图API的使用说明：通过百度MAP API，能实现地图位置的标注、区域搜索、范围搜索、附近搜索、公交导航、驾车导航等服务，一下是实现各服务的具体步骤
+
+1、引用地图API的js文件
+v代表版本号，v=1.2代表1.2版本，目前最新是1.3
+
+service代表是否加装服务部分
+
+<script type="text/javascript" src="http://api.map.baidu.com/api?key=46ce9d0614bf7aefe0ba562f8cf87194&amp;v=1.2&amp;services=true"></script>
+
+2、创建地图实例
+var map = new BMap.Map("mapDiv",{mapType:BMAP_NORMAL_MAP}); //地图所属容器 ，mapType代表地图类型
+
+map.setCurrentCity("北京");//设置当前城市，如果是以城市建筑显示，则必须设置此项
+
+mapType有多个枚举类型，详细参考用户手册
+
+map.centerAndZoom(point,13); //创建加载地图
+
+map.setCenter("朝阳");//设置地图中心点，支持point和地名
+
+map.enableScrollWheelZoom();//设置可以通过鼠标滚动、双击来进行地图的缩放
+
+3、像地图添加控件操作
+//向地图中添加平移缩放控件
+var ctrl_nav = new BMap.NavigationControl({anchor:BMAP_ANCHOR_TOP_LEFT,type:BMAP_NAVIGATION_CONTROL_LARGE});
+map.addControl(ctrl_nav);
+
+ //向地图中添加缩略图控件
+var ctrl_ove = new BMap.OverviewMapControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT,isOpen:0});
+map.addControl(ctrl_ove);
+
+//向地图中添加比例尺控件
+var ctrl_sca = new BMap.ScaleControl({anchor:BMAP_ANCHOR_BOTTOM_LEFT});
+map.addControl(ctrl_sca);
+
+//像地图中添加地图显示类型控件
+var ctrl_type = new BMap.MapTypeControl({anchor:BMAP_ANCHOR_BOTTOM_RIGHT});
+map.addControl(ctrl_type);
+
+4、启用地图一些事件
+map.enableDragging();//启用地图拖拽事件，默认启用(可不写)
+
+map.enableScrollWheelZoom();//启用地图滚轮放大缩小
+
+map.enableDoubleClickZoom();//启用鼠标双击放大，默认启用(可不写)
+
+map.enableKeyboard();//启用键盘上下左右键移动地图
+
+5、本地搜索服务
+var localSearch=new BMap.LocalSearch(map,{renderOptions:{map:map,panel:"results"}})
+LocalSearch.search("崇文门");搜索崇文门
+LocalSearch有两个构造参数，第一个代表搜索的区域，可以是map、point、或者是字符串如：“北京”,renderOptions是搜索后的结果呈现方式.
+
+renderOptions提供了多种展现方式，详细见用户手册
+
+6、周边搜索，对某一个地点附近进行搜索
+var localSearch=new BMap.LocalSearch(map,{renderOptions:{map:map,panel:"results"}})
+
+ localSearch.searchNearby("银行","中关村");
+
+7、范围搜索,地图提供的视野范围内进行搜索
+ var localSearch=new BMap.LocalSearch(map,{renderOptions:{map:map}})
+
+ localSearch.searchInBounds("银行",map.getBounds());
+
+8、公交导航
+在搜索之前，需要指定搜索区域，搜索区域只能是市不能是省，如果搜索区域是BMap.Map对象则搜索路线会自动显示在地图上
+var train = new BMap.TransitRoute(map,{readerOptions:{map:map}});
+train.search("国贸","中关村");
+
+9、驾车导航,与公交导航不同，搜索范围可以设置为省
+var driv = new BMap.DrivingRoute(map,{map:map,autoViewport:true});
+driv.search("中关村","上地");
+

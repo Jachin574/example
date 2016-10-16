@@ -1,0 +1,51 @@
+body{
+	margin: 0px;
+	padding: 0px;
+	font-size: 12px;
+	font-family: "宋体";
+	background: #FFFFFF;
+}
+
+body, h1, h2, h3, h4, h5, h6, hr, p, table, div, form, dl, dt, dd, ul, ol, li, pre, fieldset, legend, textarea, th, td{
+	margin: 0px;
+	padding: 0px;
+	font-family: "宋体";
+}
+
+li{
+	list-style: none outside none;
+}
+
+p{
+	word-wrap:break-word;
+}
+
+/*div垂直居中height为x，则line-height=x;*/
+
+em{
+	font-style: normal;
+	font-weight: normal;
+}
+
+ul{
+	list-style-type: none;
+	margin: 0px;
+	padding: 0px;
+}
+
+img{
+	margin: 0px;
+	border: 0px;
+	text-align: top;
+	display: inline;
+}
+
+a:link, a:visited, a:hover, a:active{
+	color:#333;
+	text-decoration: none;
+}
+
+a{
+	color:#333;
+	text-decoration: none;
+}

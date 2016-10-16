@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div, p {
+		width:100px;
+		height:100px;
+		border:1px solid green;
+		margin:10px 0;
+	}
+</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+</body>
+<script>
+	//如果利用get方法获得多个元素的话，就会得到多个数组
+	//为了简化开发，可以考虑将其合并到一个数组中
+	//调用多次get方法，如果想要多个数组就可以使用多个数组
+	//想要一个数组，就可以得到一个数组
+	var getTag = function(tag, results){
+		results = results || [];
+		results.push.apply( results, document.getElementsByTagName(tag) );
+		return results;
+	}
+
+	var each = function(arr, fn){
+		for(var i = 0; i < arr.length; i++){
+			if( fn.call(arr[i], i, arr[i]) == false)
+				break;
+		}
+	}
+/*
+	var divs = getTag('div');
+	var ps = getTag('p');
+
+	each(divs, function(){
+		this.style.backgroundColor = 'red';
+	});
+
+	each(ps, function(){
+		this.style.backgroundColor = 'grey';
+	});
+*/
+
+
+/*	//改进后：
+	var list = getTag('div');
+	list = getTag('p', list);
+
+	each(list, function(){
+		this.style.backgroundColor = 'orange';
+	});
+*/
+	
+	//再次改进后：
+	each(getTag('p', getTag('div')), function(){
+		this.style.backgroundColor = 'orange';
+	});
+
+</script>
+
+</html>

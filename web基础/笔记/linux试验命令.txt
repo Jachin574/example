@@ -1,0 +1,11 @@
+1.hello模块
+
+
+
+创建节点
+mknod /dev/scull0 c 250 0
+
+查询
+cat /dev/scull0
+cat /proc/scullmem
+

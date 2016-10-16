@@ -1,0 +1,62 @@
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>新建网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+    <body>
+    	<ul>
+    		<li>春</li>
+    		<li>夏</li>
+    		<li>秋</li>
+    		<li>冬</li>
+    	</ul>
+    </body>
+</html>
+<script>
+	var lis = document.getElementsByTagName("li");
+	for(var x=0; x<lis.length ; x++){
+		function (x){
+			lis[x].onclick = function(){
+				var get = function (){
+					alert(x);
+				}
+				return get;
+			}
+		}
+	}
+	// for(var i=0, arr=[]; i<=3; i++){
+	// 	arr.push(function(){
+	// 		return alert(i);
+	// 	});
+	// }
+	// arr[0]();
+	// arr[1]();
+	// // console.log(arr);
+	// // console.log();
+	// // console.log();
+
+
+</script> -->
+<!-- 
+<script type="text/javascript">
+window.onload=function(){
+var lis=document.getElementsByTagName("li");
+	for(var i=0;i<lis.length;i++){
+		lis[i].onclick=function(num){
+			return function(){
+				return alert(num);
+			}
+		}(i)
+	}
+}
+</script>
+</head>
+<body>
+<ul>
+<li>喜欢你小哲</li>
+<li>喜欢你小哲</li>
+<li>喜欢你小哲</li>
+<li>喜欢你小哲</li>
+</ul>
+</body> -->

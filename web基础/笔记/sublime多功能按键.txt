@@ -1,0 +1,11 @@
+tab	空格
+div#$*3		<div id="0-3"></div>
+div.a		<div class="a"></div>
+div*3		3个div
+div>span	<div><span></span></div>
+div+span	<div></div><span></span>
+ctrl + B	网页直接打开
+ctrl + N	新建一个文档	
+Alt+Ctrl	多选某列
+Ctrl+↑		如果是1的话，可以加到2
+Alt+↑		如果是1的话，可以加到1.1

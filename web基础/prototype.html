@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>prototype有谁构造的，_proto_它的原形</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+    <body>
+    	
+    </body>
+<script>
+	// function empty(){}
+	// console.log(Function.prototype);
+	// console.log(Function._proto_);
+	// Object {}
+	// function em(){}
+	// console.log(Object.prototype);
+
+	// function F(){}	//火狐查看
+	// F.prototype.a = function(){};	//原形改变
+	// var fuck = new F();				//产生实例
+	// console.log(fuck.prototype);	//查看由谁构造
+	// console.log(fuck._proto_);		//查看其原形
+
+	// function F(){}
+	// F.prototype={	//破坏了原形构造
+	// 	a:function(){}
+	// }
+	// F.prototype.constructor = F;	//构造定向
+	// var fuck = new F();
+	// console.log(fuck.prototype);	//查看由谁构造
+	// console.log(fuck._proto_);		//查看其原形
+</script>
+</html>

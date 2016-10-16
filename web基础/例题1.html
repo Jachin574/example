@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>选择switch</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+
+</head>
+    <body>
+   	<script>
+    		document.write("a.青岛<br>");
+    		document.write("b.曲阜");
+    		document.write("c.日照");
+    		document.write("d.城阳");
+    		document.write("e.济宁");
+    		var city = prompt("请选择你所在的城市（a,b,c,d,e）：","");
+    		switch(city){
+    			case "a":alert("你选择的城市是青岛");break;
+    			case "b":alert("你选择的城市是曲阜");break;
+    			default:alert("选择的选项超出范围");break;
+    		}
+    	</script>
+    </body>
+
+</html>

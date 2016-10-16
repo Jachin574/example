@@ -1,0 +1,25 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>删除节点</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="description" content="布尔教育 http://www.itbool.com" />
+<script>
+	function del(){
+		var lis = document.getElementsByTagName('li');
+//		alert(lis[lis.length].innerHTML);
+//		var lastli = lis[lis.length-1]
+		lis[lis.length-1].parentNode.removeChild(lis[lis.length-1]);
+	}
+</script>
+</head>
+    <body>
+    	<input type="button" value="删除最后一个节点" onclick="del();"/>
+    	<ul>
+    		<li>东</li>
+    		<li>南</li>
+    		<li>西</li>
+    		<li>北</li>
+    	</ul>
+    </body>
+</html>

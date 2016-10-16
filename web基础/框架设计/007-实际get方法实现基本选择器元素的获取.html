@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div, p {
+		width:100px;
+		height:100px;
+		border:1px solid green;
+		margin:10px 0;
+	}
+</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+</body>
+<script>
+	var getClass = function(className, results){
+		results = results || [];
+		results.push.apply( results, document.getElementsByClassName(tag) );
+		return results;
+	}
+
+	var getTag = function(tag, results){
+		results = results || [];
+		results.push.apply( results, document.getElementsByTagName(tag) );
+		return results;
+	}
+
+	var each = function(arr, fn){
+		for(var i = 0; i < arr.length; i++){
+			if( fn.call(arr[i], i, arr[i]) == false)
+				break;
+		}
+	}
+	//再次改进后：
+	each(getTag('p', getTag('div')), function(){
+		this.style.backgroundColor = 'orange';
+	});
+
+</script>
+
+</html>

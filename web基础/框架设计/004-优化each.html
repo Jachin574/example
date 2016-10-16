@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	div, p {
+		width:100px;
+		height:100px;
+		border:1px solid green;
+		margin:10px 0;
+	}
+</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<p></p>
+	<p></p>
+</body>
+<script>
+	//函数化
+	var Get = function(tag){
+		return document.getElementsByTagName(tag);
+	}
+
+	var divs = Get('div');
+	var ps = Get('p');
+
+	//性能，两个循环，改一下遍历“数组”的名字
+	var each = function(arr){
+		for(var i = 0; i < arr.length; i++){
+			arr[ i ].style.backgroundColor = 'pink';
+		}
+	}
+	
+	
+	each(divs);
+	each(ps);
+
+
+
+	var arr[1, 2, 3, 4]
+	//求和
+	var sum =0;
+	for(var i=0; i<arr.length; i++){
+		sum +=arr[i];
+	}
+	console.log(sum);
+
+	//查找最大的值
+	var max=arr[0];
+	for(var i=0; i<arr.length; i++){
+		if(max < arr[i])
+			max = arr[i];
+	}
+	console.log(max);
+
+	//查找最小的值
+	var min=arr[0]
+	for(var i=0; i<arr.length; i++){
+		if(min > arr[i])
+			min = arr[i];
+	}
+	console.log(min);
+
+	//找到4
+	var find1=-1;
+	for(var i=0; i<arr.length; i++){
+		if(arr[i] === 4){
+			find=i;
+			break;
+		}
+	}
+	console.log(find1);	
+
+	//找到5
+	var find2=-1;
+	for(var i=0; i<arr.length; i++){
+		if(arr[i] === 5){
+			find=i;
+			break;
+		}
+	}
+	console.log(find2);
+
+	//遍历操作的特点，都需要循环，但是循环体不同。
+
+//eval可以执行js的代码。例如：eval("alter('hello world!')");
+//eval("x=10;y=20;document.write(x*y)")
+
+	var each = function(arr, fn){ 	//传函数
+		for(var i=0; i<arr.length; i++){
+			fn(i, arr[i]);	//把数组传入函数里面
+		}
+	}
+
+	each(arr, function(i, v){	//传i才能知道是第几个数组
+		sum += v;
+		
+	});
+
+	var max=arr[0];
+	each(arr function(i, v){
+		if(max < v)
+			max = v;
+	});
+
+
+
+
+
+	//如果要查找某个值在哪个位置，并且找到就停止
+	var each = function(arr, fn){ 	//传函数
+		for(var i=0; i<arr.length; i++){
+			if (fn(i, arr[i]) === false)	//返回了false的时候就break
+				break;
+		}
+	}
+
+	each(arr function(i, v){
+		if(v === 3)
+			return false;
+	})
+
+
+
+
+</script>
+
+</html>
