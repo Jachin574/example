@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>识别pc端和移动端</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript">
+function Devies() {
+    var devies = navigator.userAgent.toLowerCase();
+    var ipad = devies.match(/ipad/i) == "ipad";
+    var iphone = devies.match(/iphone os/i) == "iphone os";
+    var midp = devies.match(/midp/i) == "midp";
+    var uc7 = devies.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var uc = devies.match(/ucweb/i) == "ucweb";
+    var android = devies.match(/android/i) == "android";
+    var wince = devies.match(/windows ce/i) == "windows ce";
+    var winphone = devies.match(/windows mobile/i) == "windows mobile";
+    document.writeln("您的浏览器为：");
+    if (ipad || iphone || midp || uc7 || uc || android || wince || winphone) {
+        document.writeln("phone");
+    } else {
+        document.writeln("pc");
+    }
+}
+Devies();
+</script>
+</head>
+<body>
+</body>
+</html>
