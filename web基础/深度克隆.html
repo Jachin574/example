@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<title>深度克隆</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+    <body>
+    	
+    </body>
+</html>
+<script>
+var cloneObj = function(obj){
+	var str, newobj = obj.constructor === Array ? [] : {};
+	if(typeof obj !== 'object'){
+	    return;
+	} else if(window.JSON){
+	    str = JSON.stringify(obj), //系列化对象
+	    newobj = JSON.parse(str); //还原
+	} else {
+	    for(var i in obj){
+	        newobj[i] = typeof obj[i] === 'object' ? cloneObj(obj[i]) : obj[i]; 
+	    }
+	}
+	return newobj;
+};
+
+//测试
+var obj = {a: 0, b: 1, c: 2};
+var arr = [0, 1, 2];
+//执行深度克隆
+var newobj = cloneObj(obj);
+var newarr = cloneObj(arr);
+//对克隆后的新对象进行成员删除
+delete newobj.a;
+newarr.splice(0,1);
+console.log(obj, arr, newobj, newarr);
+//结果： {a: 0, b: 1, c: 2}, [0, 1, 2], {b: 1, c: 2}, [1, 2];
+
+// console.log(newobj);
+</script>
