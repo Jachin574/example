@@ -1,0 +1,45 @@
+<html></html>
+<script>
+	// var a = Array();
+	// for(var i=0; i<10; i++){
+	// 	a[i] = parseInt(Math.random()*10);
+	// }
+	// console.log(a);
+
+	// var b = new Array();
+	arr = [0, 5, 7, 0, 0, 5, 9, 8, 6, 7];
+	console.log(arr);
+	// var arr1 = new Array();
+
+	for(var x=0; x<arr.length-1; x++){
+		for(var y=arr.length-1; y>x; y--){
+			if(arr[y] > arr[y-1])
+				console.log("y的位置" + arr[y]);
+				console.log("y-1的位置" + arr[y-1]);
+				alert("停顿");
+				var temp = arr[y];
+				arr[y] = arr[y-1];
+				arr[y-1] = temp;
+		}
+	}
+	console.log(arr);
+
+	// var len = arr.length;
+
+ //        for (var i = 0; i < len - 1; i++) {
+ //            var n = 0;
+ //            for (var j = 0; j < len - i ; j++) {
+ //                if(arr[j] < arr[j-1]){
+ //                    n++;
+ //                    console.log(n);
+ //                    var temp = arr[j];
+ //                    arr[j] = arr[j-1];
+ //                    arr[j-1] = temp;
+ //                }
+ //            }
+ //            if( n < 1){
+ //                break;
+ //            }
+ //        }
+ //    console.log(arr);
+</script>
