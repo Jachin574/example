@@ -1,7 +1,43 @@
+<!-- 1.普通对象与函数对象
+  JavaScript 中，万物皆对象！但对象也是有区别的。分为普通对象和函数对象，Object ，Function 是JS自带的函数对象。
+  凡是通过 new Function() 创建的对象都是函数对象，其他的都是普通对象
+  例子:function f1(){};函数对象
+       var f2 = function(){};函数对象
+       var f3 = new Function('str','console.log(str)');函数对象
+
+       var o3 = new f1();普通对象
+       var o1 = {};普通对象
+       var o2 =new Object();普通对象
+
+
+
+1. 所有的对象都有__proto__属性，该属性对应,该对象的原型.
+2. 所有的"函数对象"都有prototype属性，该属性的值会被赋值给该函数创建的对象的_proto_属性.
+3. 原型对象其实就是普通对象（Function.prototype除外,它是函数对象，但它很特殊，他没有prototype属性（前面说道函数对象都有prototype属性））
+http://www.108js.com/article/article1/10201.html?id=1092
+4. 所有的原型对象都有constructor属性，该属性对应创建所有指向该原型的实例的构造函数.
+5. 函数对象和原型对象通过prototype和constructor属性进行相互关联. 
+6. 那原型对象是用来做什么的呢？主要作用是用于继承。
+  var person = function(name){
+   this.name = name
+  };
+  person.prototype.getName = function(){
+     return this.name; 
+  }
+  var zjh = new person(‘zhangjiahao’);
+  zjh.getName(); //zhangjiahao
+
+
+-->
+
+
+<!-- prototype叫做原型对象
+__proto__叫做属性 -->
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
 <head>
-<title>prototype有谁构造的，_proto_它的原形</title>
+<title></title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 </head>
     <body>
@@ -9,17 +45,24 @@
     </body>
 <script>
 	// function empty(){}
-	// console.log(Function.prototype);
+	// empty.prototype.a = function(){};
+	// var test1 = new empty();
+	// console.log(test1.prototype);
+	console.log(Function.prototype);
 	// console.log(Function._proto_);
-	// Object {}
+	// // Object {}
 	// function em(){}
 	// console.log(Object.prototype);
 
-	// function F(){}	//火狐查看
-	// F.prototype.a = function(){};	//原形改变
-	// var fuck = new F();				//产生实例
-	// console.log(fuck.prototype);	//查看由谁构造
-	// console.log(fuck._proto_);		//查看其原形
+	function F(){}	//火狐查看
+	console.log(F.prototype);
+	F.prototype.a = function(){};	//原形改变
+
+	var fuck = new F();				//产生实例
+
+	console.log(fuck.prototype);	//查看由谁构造,因为是普通对象,所以没有prototype属性
+
+	console.log(fuck.__proto__);	//查看其原形
 
 	// function F(){}
 	// F.prototype={	//破坏了原形构造
