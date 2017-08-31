@@ -1,0 +1,7 @@
+parseInt(Math.random()*count)
+
+Array.prototype.pop1 = function(){
+    return this.splice(this.length-1, 1);  
+}
+
+¸»ÎÄ±¾±à¼­KindEditor , UEditor
